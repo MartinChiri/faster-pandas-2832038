@@ -8,13 +8,14 @@ import pandas as pd
 
 def last_error_time(df):
     """Find last time there's an error in df"""
-    last_time = None
-    for _, row in df.iterrows():
-        if row['status_code'] < 400:
-            continue
-        if not last_time or row['time'] > last_time:
-            last_time = row['time']
-    return last_time
+    # last_time = None
+    # for _, row in df.iterrows():
+    #     if row['status_code'] < 400:
+    #         continue
+    #     if not last_time or row['time'] > last_time:
+    #         last_time = row['time']
+    # return last_time
+    return df[df['status_code'] >= 400].time.max()
 
 
 def load_df(db_file):

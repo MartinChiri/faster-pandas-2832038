@@ -1,4 +1,6 @@
-"""Parse log lines"""
+"""
+Parse log lines
+"""
 
 from datetime import datetime
 

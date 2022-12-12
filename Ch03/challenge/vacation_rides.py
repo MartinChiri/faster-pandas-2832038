@@ -62,6 +62,6 @@ def vacation_rides(df):
             continue
 
         if (is_holiday(date) or is_weekend(date)) and is_afternoon(time):
-            result = result.append(row, ignore_index=True)
+            result = pd.concat([result, pd.DataFrame([row])], ignore_index=True)
 
     return result
