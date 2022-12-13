@@ -6,11 +6,14 @@ time.
 
 import pandas as pd
 
-min_dist, max_dist = float('inf'), float('-inf')
-dfs = pd.read_csv('taxi.csv.xz', usecols=['trip_distance'], chunksize=50_000)
-for df in dfs:
-    desc = df['trip_distance'].describe()
-    min_dist = min(min_dist, desc['min'])
-    max_dist = max(max_dist, desc['max'])
 
-print('min', min_dist, 'max', max_dist)
+def given_solution():
+
+    min_dist, max_dist = float('inf'), float('-inf')
+    dfs = pd.read_csv('taxi.csv.xz', usecols=['trip_distance'], chunksize=50_000)
+    for df in dfs:
+        desc = df['trip_distance'].describe()
+        min_dist = min(min_dist, desc['min'])
+        max_dist = max(max_dist, desc['max'])
+
+    print('min', min_dist, 'max', max_dist)
